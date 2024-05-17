@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import type { MaisonRecordType } from '@types'
 import MaisonCard from '../components/MaisonCard.vue'
+import { allMaisonsFavori } from '@/backend'
 
-const maisonListe: {
+const maisonListe = await allMaisonsFavori()
+console.log(maisonListe)
+
+/* const maisonListe: {
     adresse: string;
     collectionId: string;
     collectionName: string;
@@ -179,7 +182,7 @@ const MaisonListe3: MaisonRecordType[] = [
     }
 ]
 
-console.log(MaisonListe3)
+console.log(MaisonListe3) */
 </script>
 
 <template>
