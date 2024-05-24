@@ -37,7 +37,19 @@ export async function surfaceORprice(surface, prix) {
   return records
 }
 
+export async function allAgentsSorted() {
+  const records = await pb.collection('agents').getFullList()
+  return records
+}
+
 export async function infoAgent(id) {
   const record = await pb.collection('agents').getOne(id)
   return record
+}
+
+export async function maisonsAgent(agentid) {
+  const records = await pb.collection('maison').getFullList({
+    filter: `agent = '${agentid}'`,
+  })
+  return records
 }
